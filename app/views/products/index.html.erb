@@ -1,4 +1,6 @@
-<% first_product = Product.first %>
+  <% first_product = Product.first %>
+  <% cheap_product = Product.where('price > 100').first %>
+  <% product_count = Product.count%>
     <p>
       Product Name: "<%= first_product.name %>"" costs $<%= first_product.price %>
     </p>
@@ -6,4 +8,17 @@
 
     <p>
       The seller for this product is named '<%= first_product.user.name %>'
-    </p
+    </p>
+
+    
+
+    <p>
+      the cheap product '<%= cheap_product.name %>'
+    </p>
+
+        <p>
+      the cheap product owner '<%= cheap_product.user.name %>'
+    </p>
+    <p>
+      the number of products '<%= product_count %>'
+    </p>
