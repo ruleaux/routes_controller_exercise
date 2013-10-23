@@ -22,3 +22,14 @@
     <p>
       the number of products '<%= product_count %>'
     </p>
+
+    <% lots_of_products = Product.includes(:user).all %>
+
+    <ul>
+      <% lots_of_products.each do |product| %>
+        <li>
+          Product Name: "<%= product.name %>"" costs $<%= product.price %>
+          Sold by <%= product.user.name %>
+        </li>
+      <% end %>
+    </ul>
